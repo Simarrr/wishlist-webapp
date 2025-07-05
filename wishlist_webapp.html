@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Вишлист</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+    .item {
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    button {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h2>🎁 Вишлист Романа</h2>
+  <div class="item">
+    <strong>📘 Электронная книга Kindle</strong><br>
+    <small>Гаджеты</small><br>
+    <button onclick="reserve('Электронная книга Kindle')">Забронировать</button>
+  </div>
+  <div class="item">
+    <strong>🎧 Sony WH-1000XM5</strong><br>
+    <small>Аудио</small><br>
+    <button onclick="reserve('Sony WH-1000XM5')">Забронировать</button>
+  </div>
+
+  <script>
+    function reserve(item) {
+      const tg = window.Telegram.WebApp;
+      tg.sendData(item); // Отправка данных боту
+      tg.close(); // Закрытие окна
+    }
+
+    Telegram.WebApp.ready();
+  </script>
+</body>
+</html>
